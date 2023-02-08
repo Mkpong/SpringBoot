@@ -14,7 +14,7 @@ public class SignupService {
 
     public void register(User user){
 
-        userRepository.save(user);
+        userRepository.save(user); //DB에 JPA를 통해서 저장
 
     }
 

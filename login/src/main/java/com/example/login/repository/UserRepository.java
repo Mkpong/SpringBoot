@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User , String> {
-
+    //JPARepository<1 , 2> -> 1은 데이터 형식 2는 id값의 자료형
 }
 
