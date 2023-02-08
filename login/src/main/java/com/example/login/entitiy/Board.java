@@ -1,8 +1,6 @@
 package com.example.login.entitiy;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -11,9 +9,10 @@ import lombok.Data;
 public class Board {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String title;
-    private String text;
+    private String content;
 
 }

@@ -16,7 +16,7 @@ public class SignupController {
 
     @PostMapping("/signup")
     public String signup(){
-        return "signup";
+        return "/Login/signup";
     }
 
 
@@ -37,7 +37,7 @@ public class SignupController {
     public String loginPage(){
 
 
-        return "loginpage";
+        return "Login/loginpage";
     }
 
     @PostMapping("/login/pro")
@@ -50,7 +50,7 @@ public class SignupController {
         //일치하지 않으면 message후 login page로 이동
 
         model.addAttribute("message" , "로그인을 시도하셨습니다.");
-        model.addAttribute("searchUrl" , "/board");
+        model.addAttribute("searchUrl" , "/board/list");
 
         return "message";
     }
