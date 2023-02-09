@@ -1,0 +1,72 @@
+1. list
+-controller에서 유저의 요청을 받아들임
+-controller에서 service에 정보 요청
+-service에서 Repository에서 데이터를 가져와
+controller로 넘겨줌
+-controller에서 해당 정보를 view페이지전송
+-view페이지에서 thymeleaf를 통해 출력
+
+2. write
+-boardlist에서 작성버튼을 통해 controller에
+wrtie작업을 요청
+-controller에서는 wrtie작성폼을 view에
+띄워줌
+-view에서는 사용자의 게시글 정보를
+입력받고 그 데이터를 다시 controller로 전송
+-controller은 해당 데이터를 다시 service에
+DB에 저장하도록 요청
+-service에서 해당 게시글을 저장
+-controller에서 board/list로 다시 redirect
+
+3.view
+-board/list에서 해당 게시글을 누르면
+controller의 boardView를 호출
+-controller에서 Service에 해당 id값의
+게시글 정보 요청
+-Service에서 요청한 데이터를 뽑음
+-Controller에서 다시 view페이지에 전송
+
+4. delete
+-board/view에서 삭제버튼을 누르면
+controller의 boardDelete호출
+-controller에서 Service에게 해당 id값의
+데이터 삭제 요청
+-Service는 데이터 삭제 처리 요청처리
+-Controller에서 다시 board/list페이지로
+redirect해줌
+
+5. modify
+-board/view에서 수정버튼을 누르면
+Controller의 boardModify함수 호출
+-Controller에서 해당 id값의 게시글을
+Service에 요청
+-Controller는 modify페이지로 view페이지를
+설정
+-boardmodify view에서 수정된 정보를
+입력받고 수정완료 버튼을 누르면 Controller
+의 boardUpdate함수 호출
+-Controller의 boardupdate함수는 id값에
+맞는 게시물을 Service에 요청
+-전송받은 게시물정보를 Temp에 저장 후
+view에서 받은 새로운 게시물의 정보를
+Temp에 덮어씀
+-덮어쓴 boardTemp는 다시 Service에게
+DB에 저장하도록 요청
+-Controller에서 다시 board/list로 redirect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

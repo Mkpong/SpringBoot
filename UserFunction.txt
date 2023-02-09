@@ -1,0 +1,8 @@
+1. signup
+-loginpage에서 회원가입 버튼을 누르면
+Controller는 signup페이지를 띄워줌
+-sign up페이지에서 해당 정보들을 입력
+Controller는 해당 입력을 받고 Service에
+해당 유저의 정보를 데이터에 저장해달라 요청
+-저장이 완료되고 Controller는 다시 로그인
+페이지로 redirect해줌

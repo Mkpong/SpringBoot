@@ -60,6 +60,31 @@ public class BoardController {
     }
 
     //글을 수정하는 메소드 구현
+    @GetMapping("/board/modify/{id}")
+    public String boardModify(@PathVariable("id") Integer id , Model model){
+
+        model.addAttribute("board" , boardService.boardView(id));
+
+        return "board/boardmodify";
+    }
+
+    @PostMapping("/board/update/{id}")
+    public String boardUpdate(Model model , Board board , @PathVariable("id") Integer id ){
+
+        Board boardTemp = boardService.boardView(id);
+        boardTemp.setName(board.getName());
+        boardTemp.setTitle(board.getTitle());
+        boardTemp.setContent(board.getContent());
+
+        boardService.write(boardTemp);
+
+        model.addAttribute("message" , "글 수정이 완료되었습니다.");
+        model.addAttribute("searchUrl" ,  "/board/list");
+
+        return "message";
+    }
+
+
 
 
 }
