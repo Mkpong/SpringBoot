@@ -40,12 +40,6 @@ public class SignupController {
         return "message";
     }
 
-    @GetMapping("/login")
-    public String loginPage(){
-
-
-        return "Login/loginpage";
-    }
 
 
 

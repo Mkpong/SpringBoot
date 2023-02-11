@@ -13,6 +13,32 @@ public class LoginController {
     @Autowired
     private LoginService loginservice;
 
+    @GetMapping("/login")
+    public String loginPage(){
+        return "Login/loginpage";
+    }
+
+    @GetMapping("/login/admin")
+    public String loginAdmin(Model model){
+        model.addAttribute("list" , loginservice.userList());
+
+        return "Login/loginadmin";
+    }
+
+    @GetMapping("/login/admin/userdelete")
+    public String userDelete(String id, Model model){
+        int check = loginservice.userDelete(id);
+        if(check == 1){
+            model.addAttribute("message" , "삭제가 완료되었습니다.");
+            model.addAttribute("searchUrl"  , "/login/admin");
+        }
+        else{
+            model.addAttribute("message" , "관리자 계정은 삭제할 수 없습니다.");
+            model.addAttribute("searchUrl"  , "/login/admin");
+        }
+        return "message";
+    }
+
     @PostMapping("/login/pro")
     public String loginPro(Model model , String id , String password){
 
@@ -30,6 +56,13 @@ public class LoginController {
             return "message";
         }
 
+        if(id.equals("admin") && password.equals("admin")){
+            model.addAttribute("message" , "관리자페이지로 이동합니다.");
+            model.addAttribute("searchUrl" , "/login/admin");
+            return "message";
+
+        }
+
         model.addAttribute("message" , "로그인이 완료되었습니다.");
         model.addAttribute("searchUrl" , "/board/list");
         return "message";
@@ -41,7 +74,6 @@ public class LoginController {
         model.addAttribute("searchUrl" , "/login");
         return "message";
     }
-
 
 
 
