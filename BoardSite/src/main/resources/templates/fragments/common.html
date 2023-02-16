@@ -18,9 +18,11 @@
       <a th:href="@{/board/list}" class="d-flex align-items-center text-dark text-decoration-none">
         <span class="fs-4 mx-2">Board</span>
       </a>
-
+      <a th:href="@{/admin/user}" class="d-flex align-items-center text-dark text-decoration-none" sec:authorize="hasRole('ROLE_ADMIN')">
+        <span class="fs-4 mx-4">User</span>
+      </a>
       <div class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <button class="w-100 btn btn-lg btn-primary me-3 py-2 text-decoration-none" type="button" th:onclick="|location.href='@{/login}'|" sec:authorize="isAnonymous()">Login</button>
+        <button class="w-100 btn btn-lg btn-primary me-3 py-2 text-decoration-none" type="button" th:onclick="|location.href='@{ /login}'|" sec:authorize="isAnonymous()">Login</button>
         <!--<a class="me-3 py-2 text-dark text-decoration-none" th:href="@{/logout}" sec:authorize="isAuthenticated()">Logout</a>-->
       <div sec:authorize="isAuthenticated()">
         <span sec:authentication="name">사용자</span>

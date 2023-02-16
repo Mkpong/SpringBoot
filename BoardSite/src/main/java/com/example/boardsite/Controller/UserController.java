@@ -33,4 +33,18 @@ public class UserController {
         return "message";
     }
 
+    @GetMapping("/user/info")
+    public String userInfo(){
+        return "User/userinfo";
+    }
+
+    @GetMapping("/user/delete")
+    public String userDelete(Integer id , Model model){
+        userService.userDelete(id);
+        model.addAttribute("message" , "유저 삭제가 완료되었습니다.");
+        model.addAttribute("searchUrl" , "/admin/user");
+        return "message";
+    }
+
+
 }

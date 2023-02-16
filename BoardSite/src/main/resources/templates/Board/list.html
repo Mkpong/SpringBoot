@@ -10,7 +10,6 @@
   </symbol>
 </svg>
 
-
   <div class="container py-3">
     <header>
 
@@ -27,24 +26,55 @@
   <div class="container">
       <div class="text-end">총 건수 :<span th:text="${#lists.size(board)}"></span> </div>
       <table class="table table-striped">
+        <colgroup>
+          <col style="width:10%">
+          <col style="width:60%">
+          <col style="width:20%">
+          <col style="width:10%">
+        </colgroup>
         <!--<caption>List of users</caption>-->
         <thead>
         <tr class="text-center">
           <th scope="col">번호</th>
           <th scope="col">제목</th>
           <th scope="col">작성자</th>
+          <th scope="col">조회수</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="board : ${board}" class="text-center">
           <td th:text="${board.id}">id</td>
           <td>
-            <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+            <a th:text="${board.title}" th:href="@{/board/view/{id}(id=${board.id})}"></a>
           </td>
           <td>sexy</td>
+          <td>69</td>
         </tr>
         </tbody>
       </table>
+    <!-- 페이징처리 시작 -->
+    <div th:if="${!board.isEmpty()}">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" th:classappend="${!board.hasPrevious} ? 'disabled'">
+          <a class="page-link"
+             th:href="@{|?page=${board.number-1}|}">
+            <span>이전</span>
+          </a>
+        </li>
+        <li th:each="page: ${#numbers.sequence(0, board.totalPages-1)}"
+            th:if="${page >= board.number-5 and page <= board.number+5}"
+            th:classappend="${page == board.number} ? 'active'"
+            class="page-item">
+          <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+        </li>
+        <li class="page-item" th:classappend="${!board.hasNext} ? 'disabled'">
+          <a class="page-link" th:href="@{|?page=${board.number+1}|}">
+            <span>다음</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- 페이징처리 끝 -->
       <div class="text-end">
         <button type="button" class="btn btn-primary" onclick="location.href='/board/write'">작성</button>
       </div>

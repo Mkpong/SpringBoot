@@ -2,13 +2,17 @@ package com.example.boardsite.Controller;
 
 
 import com.example.boardsite.Entity.Board;
+import com.example.boardsite.Entity.Comment;
 import com.example.boardsite.Service.BoardService;
+import com.example.boardsite.Service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,11 +22,14 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
+    @Autowired
+    private CommentService commentService;
+
     @GetMapping("/board/list")
     //게시판에 작성된 글의 목록을 보여줌
-    public String boardList(Model model){
-        List<Board> boardlist = boardService.boardList();
-        model.addAttribute("board" , boardlist);
+    public String boardList(Model model ,@RequestParam(value="page", defaultValue="0") int page){
+        Page<Board> boardpage = this.boardService.boardPage(page);
+        model.addAttribute("board" , boardpage);
         return "Board/list";
     }
 
@@ -46,12 +53,12 @@ public class BoardController {
 
 
 
-    @GetMapping("/board/view")
+    @GetMapping("/board/view/{id}")
     //특정 게시판의 글의 상세내용을 보여줌
-    public String boardView(Model model , Integer id) {
-
+    public String boardView(Model model , @PathVariable("id") Integer id, @RequestParam(value="page", defaultValue="0") int page) {
         model.addAttribute("board", boardService.boardView(id));
-
+        Page<Comment> comments = this.commentService.commentPage(id , page);
+        model.addAttribute("comment" , comments);
         return "board/view";
     }
 
@@ -86,6 +93,7 @@ public class BoardController {
 
         return "message";
     }
+
 
 
 
