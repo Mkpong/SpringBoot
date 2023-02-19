@@ -41,6 +41,17 @@ public class BoardService {
         return this.boardRepository.findAll(pageable);
     }
 
+    public Page<Board> boardSearch(String keyword , int page){
+        List<Sort.Order> sorts = new ArrayList<>();
+        sorts.add(Sort.Order.desc("id"));
+        Pageable pageable = PageRequest.of(page, 10 , Sort.by(sorts));
+        return boardRepository.findBytitleContaining(pageable , keyword);
+    }
+
+    public List<Board> boardSearchList(String keyword){
+        return boardRepository.findBytitleContaining(keyword);
+    }
+
 
 
 

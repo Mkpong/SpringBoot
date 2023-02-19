@@ -1,0 +1,17 @@
+oaZquheK8!IM
+
+mysql 서버 시작과 구동확인
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+
+mysql -u root -p
+->password : Dlwodud99!
+
+jar파일 구동 방법
+java -jar filename.jar
+
+-java 설치 방법
+
+-mysql 아마존리눅스 서버에 설치방법
+
+

@@ -14,7 +14,14 @@ public class Comment {
 
     private String comment;
 
+    private String name;
+
+    private String time;
+
     @ManyToOne
     private Board board;
+
+
+
 
 }

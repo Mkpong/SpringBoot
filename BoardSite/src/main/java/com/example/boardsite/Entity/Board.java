@@ -15,6 +15,9 @@ public class Board {
     private int id;
     private String title;
     private String content;
+    private int count;
+    private String name;
+    private String time;
 
     @OneToMany(mappedBy = "board" ,cascade = CascadeType.REMOVE)
     private List<Comment> commentList;

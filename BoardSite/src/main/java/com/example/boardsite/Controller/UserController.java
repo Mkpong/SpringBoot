@@ -16,12 +16,12 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(){
-        return "/User/login";
+        return "User/login";
     }
 
     @GetMapping("/register")
     public String register(){
-        return "/User/register";
+        return "User/register";
     }
 
     @PostMapping("/register")

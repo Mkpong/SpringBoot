@@ -32,7 +32,7 @@ public class WebSecurityConfig{
         http.csrf().disable();
         http.authorizeHttpRequests()
                 .requestMatchers(
-                        new AntPathRequestMatcher("/**")).permitAll()
+                        new AntPathRequestMatcher("/")).permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/admin/user").hasRole("ADMIN")
                 .requestMatchers("/logout").permitAll()
@@ -41,11 +41,11 @@ public class WebSecurityConfig{
                 .requestMatchers("/css/**").permitAll()
                 .requestMatchers("/board/list").hasAnyRole("USER" , "ADMIN")
                 .requestMatchers("/board/write").hasAnyRole("USER" , "ADMIN")
-                .requestMatchers("/board/modify/**").hasAnyRole("USER" , "ADMIN")
-                .requestMatchers("/board/update/**").hasAnyRole("USER" , "ADMIN")
+                .requestMatchers("/board/modify/**").hasAnyRole("ADMIN")
+                .requestMatchers("/board/update/**").hasAnyRole("ADMIN")
                 .requestMatchers("/board/view/**").hasAnyRole("USER" , "ADMIN")
-                .requestMatchers("/board/delete").hasAnyRole("USER" , "ADMIN")
-                .requestMatchers("/board/comment/**").hasAnyRole("USER" , "ADMIN")
+                .requestMatchers("/board/delete").hasAnyRole("ADMIN")
+                .requestMatchers("/comment/**").hasAnyRole("USER" , "ADMIN")
                 .and()
                     .csrf().ignoringRequestMatchers(
                             new AntPathRequestMatcher("/h2-console/**"))
