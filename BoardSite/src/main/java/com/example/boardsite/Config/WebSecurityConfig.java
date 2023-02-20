@@ -34,7 +34,8 @@ public class WebSecurityConfig{
                 .requestMatchers(
                         new AntPathRequestMatcher("/")).permitAll()
                 .requestMatchers("/login").permitAll()
-                .requestMatchers("/admin/user").hasRole("ADMIN")
+                .requestMatchers("/admin/user/**").hasRole("ADMIN")
+                .requestMatchers("/user/**").hasRole("ADMIN")
                 .requestMatchers("/logout").permitAll()
                 .requestMatchers("/home").permitAll()
                 .requestMatchers("/register").permitAll()
@@ -44,7 +45,7 @@ public class WebSecurityConfig{
                 .requestMatchers("/board/modify/**").hasAnyRole("ADMIN")
                 .requestMatchers("/board/update/**").hasAnyRole("ADMIN")
                 .requestMatchers("/board/view/**").hasAnyRole("USER" , "ADMIN")
-                .requestMatchers("/board/delete").hasAnyRole("ADMIN")
+                .requestMatchers("/board/delete/**").hasAnyRole("ADMIN")
                 .requestMatchers("/comment/**").hasAnyRole("USER" , "ADMIN")
                 .and()
                     .csrf().ignoringRequestMatchers(

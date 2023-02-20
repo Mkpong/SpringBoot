@@ -15,3 +15,13 @@ java -jar filename.jar
 -mysql 아마존리눅스 서버에 설치방법
 
 
+배포과정
+
+AWS lightsail 인스턴스 생성
+
+리눅스2 서버에 mysql 설치 , 자바설치
+->IP:localhost로 접속이 가능
+
+리눅스2 서버에 nginx를 구축
+
+
