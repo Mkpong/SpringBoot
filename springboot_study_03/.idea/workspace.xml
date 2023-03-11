@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d33f05b5-ef33-4b1b-8b2d-58d94dbeb9f1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springboot_study_03/SpringbootStudy03Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/springboot_study_03/SpringbootStudy03ApplicationTests.java" beforeDir="false" />
+    <list default="true" id="b209c069-c29b-4244-a65d-decf10a4651e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/src/main/java/com/example/spring_study_03/SpringStudy03Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_study_03/src/test/java/com/example/spring_study_03/SpringStudy03ApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2MrHyqY5IfZ0n97lGOIFH6u86Lp" />
+  <component name="ProjectId" id="2MrItzGZ3BoExurmles3TIE8KCU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,16 +65,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d33f05b5-ef33-4b1b-8b2d-58d94dbeb9f1" name="Changes" comment="" />
-      <created>1678519041274</created>
+      <changelist id="b209c069-c29b-4244-a65d-decf10a4651e" name="Changes" comment="" />
+      <created>1678519492652</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678519041274</updated>
-      <workItem from="1678519042474" duration="277000" />
+      <updated>1678519492652</updated>
+      <workItem from="1678519494223" duration="11000" />
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
 </project>
