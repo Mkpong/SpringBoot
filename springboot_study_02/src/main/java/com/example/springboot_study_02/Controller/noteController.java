@@ -33,4 +33,9 @@ public class noteController {
         return noteService.findbyId(id);
     }
 
+    @GetMapping("/api/note/delete/{id}")
+    public void noteDelete(@PathVariable("id") Integer id){
+        noteService.noteDelete(id);
+    }
+
 }
