@@ -9,4 +9,4 @@
 3. team목록 페이지 구현 - 양방향 One to Many를 통해 team에서도 team에 속해있는 user정보를 출력한다.
 
 내가 겪었던 문제들
-1. jpa 양방향 무한 참조로 인한 stackoverflow -> 해결방법 -> jsonignore or dto사용
+1. jpa 양방향 무한 참조로 인한 stackoverflow -> 해결방법 -> jsonignore or dto사용!
