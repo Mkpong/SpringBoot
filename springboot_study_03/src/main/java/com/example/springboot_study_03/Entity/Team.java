@@ -18,6 +18,8 @@ public class Team {
 
     private String name;
 
+    private int size;
+
     @JsonIgnore //무한루프에 빠지는것 방지
     @OneToMany(mappedBy = "team")
     private List<SiteUser> members = new ArrayList<>();

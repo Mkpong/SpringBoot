@@ -40,8 +40,12 @@ public class TeamController {
 
     @PostMapping("/api/team/delete/{id}")
     public void teamdelete(@PathVariable("id") Integer id){
-        // teamservice.deleteteam(id);
+        teamservice.teamdelete(id);
     }
 
+    @PostMapping("/api/member/delete/{member_id}/{team_id}")
+    public void memberdelete(@PathVariable("member_id") Integer member_id , @PathVariable("team_id") Integer team_id){
+        teamservice.memberdelete(team_id , member_id);
+    }
 
 }

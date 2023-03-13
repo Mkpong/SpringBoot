@@ -20,6 +20,7 @@ public class TeamService {
     private UserRepository userrepository;
 
     public void createTeam(Team team){
+        team.setSize(0);
         teamrepository.save(team);
     }
 
@@ -28,26 +29,40 @@ public class TeamService {
     }
 
     public void updateTeam(Integer id , String username){
-        //만약 username인 siteuser가 이미 팀이 있다면 등록을 거절해야 한다. - 추가내용
         Team team = teamrepository.findById(id).get();
         SiteUser user = userrepository.findByusername(username).get();
+        int size = team.getSize();
+
+        if(user.getTeam() != null) return ; //만약 팀이 있다면 팀추가를 하지 않음.
 
 //        List<SiteUser> member = team.getMembers();
 //        member.add(user);
 //        team.setMembers(member);
 
         user.setTeam(team);
+        team.setSize(size+1);
 
         teamrepository.save(team);
         userrepository.save(user);
     }
 
     public List<SiteUser> teamview(Integer id){
-        return teamrepository.findById(id).get().getMembers();
+        Team team = teamrepository.findById(id).get();
+        return team.getMembers();
     }
 
     public void teamdelete(Integer id){
-        // 팀 삭제
+        teamrepository.deleteById(id);
+    }
+
+    public void memberdelete(Integer team_id , Integer member_id){
+        SiteUser user = userrepository.findById(member_id).get();
+        Team team = teamrepository.findById(team_id).get();
+        int size = team.getSize();
+        if(size > 0) team.setSize(size-1);
+        user.setTeam(null);
+        userrepository.save(user);
+        teamrepository.save(team);
     }
 
 
